@@ -22,5 +22,19 @@ document.querySelector('.run').addEventListener('click', function () {
     //get code from editor
     let code = editor.getValue();
 
+    //try all following code and catch errors to display to user
+    try {
+
+        //create function from code and execute it
+        let codeFunction = new Function(code);
+        codeFunction();
+
+        let userFunction = new Function("return hello")();
+
+        userFunction();
+    }   
+    catch (error) {
+        resultPara.innerHTML = error.message;
+    }
     
 });
