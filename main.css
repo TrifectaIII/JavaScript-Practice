@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+}
+
+.code {
+    text-align: left;
+    border: solid 2px black;
+}
+
+.run {
+    margin-top: 10px;
+    width:80%;
+    border-color:black !important;
+}
