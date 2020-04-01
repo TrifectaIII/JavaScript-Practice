@@ -3,7 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-        <title>JS Practice</title>
+        <title>JavaScript Practice</title>
+
+        <!-- favicon from favicon.io -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
 
         <!-- skeleton css from jsdelivr -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skeleton-css@2.0.4/css/skeleton.css">
@@ -15,6 +21,9 @@
         <!-- codemirror javascript mode from jsdelivr -->
         <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/mode/javascript/javascript.js"></script>
 
+        <!-- codemirror closeBrackets addon from jsdelivr -->
+        <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/addon/edit/closebrackets.js"></script>
+
         <!-- site css -->
         <link href="site.css" rel="stylesheet" type="text/css" />
 
@@ -25,7 +34,7 @@
         <div class='container'>
 
             <div class='row'>
-                <h1> Javascript Practice </h1>
+                <h1> JavaScript Practice </h1>
                 <p> 
                     Created by <a href='https://trifectaiii.github.io/'>Dakota Madden-Fong</a> 
                 </p>
@@ -44,8 +53,9 @@
                 <button class='run'>RUN</button>
             </div>
 
-            <div class='row'>
-                <p class='result'>&nbsp;</p>
+            <div class='row output'>
+                <p class='error'></p>
+                <p class='result'></p>
             </div>
 
         </div>

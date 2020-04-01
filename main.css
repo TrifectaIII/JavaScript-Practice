@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
 .container {
     text-align: center;
 }
@@ -7,8 +9,24 @@
     border: solid 2px black;
 }
 
+.code * {
+    font-family: 'Source Code Pro', monospace;
+}
+
 .run {
-    margin-top: 10px;
-    width:80%;
+    margin: 10px;
+    padding: 5px 30px;
+    /* width:80%; */
+    height: auto;
     border-color:black !important;
+    font-size:x-large;
+}
+
+.output {
+    margin-top:20px;
+}
+
+.error {
+    color:crimson;
+    font-size:x-large;
 }
