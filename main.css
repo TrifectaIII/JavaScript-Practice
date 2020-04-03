@@ -2,6 +2,23 @@
 
 .container {
     text-align: center;
+    min-width:75%;
+}
+
+.problem {
+    border: solid 2px black!important;
+}
+
+.navigation {
+    border: solid 1px black !important;
+}
+
+.title, .prompt {
+    text-align: left;
+}
+
+.prompt {
+    font-size: larger;
 }
 
 .code {
@@ -22,11 +39,19 @@
     font-size:x-large;
 }
 
-.output {
-    margin-top:20px;
-}
-
 .error {
     color:crimson;
     font-size:x-large;
+}
+
+.incorrect {
+    color: crimson;
+}
+
+.correct {
+    color: green;
+}
+
+table {
+    width:100%;
 }

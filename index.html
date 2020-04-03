@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+        <link rel="manifest" href="/favicon/site.webmanifest">
 
         <!-- skeleton css from jsdelivr -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skeleton-css@2.0.4/css/skeleton.css">
@@ -36,33 +36,51 @@
             <div class='row'>
                 <h1> JavaScript Practice </h1>
                 <p> 
-                    Created by <a href='https://trifectaiii.github.io/'>Dakota Madden-Fong</a> 
+                    Created by <a href='https://trifectaiii.github.io/'>Dakota Madden-Fong</a>
                 </p>
-                <br><br>
             </div>
+
+            <br><br>
 
             <div class='row'>
-                <p class='prompt'>&nbsp;</p>
+                <h5>Choose Problem:</h5>
+                <button class='back navigation'>PREV</button>
+                <select class='problem'></select>
+                <button class='forward navigation'>NEXT</button>
             </div>
 
-            <div class='row code'> 
-                <textarea class='editor'></textarea>
+            <br>
+
+            <div class='row'> 
+                <div class='seven columns'>
+
+                    <h4 class='title'></h4>
+                    <p class='prompt'></p> 
+
+                    <div class='code'>
+                        <textarea class='editor'></textarea>
+                    </div>
+
+                    <button class='run'>RUN</button>
+
+                </div>
+
+                <div class='five columns'>
+
+                    <div class='result'></div>
+                    <p class='error'></p>
+                    
+                    <button class='continue'>CONTINUE</button>
+                </div>
             </div>
 
-            <div class='row'>
-                <button class='run'>RUN</button>
-            </div>
-
-            <div class='row output'>
-                <p class='error'></p>
-                <p class='result'></p>
-            </div>
+            
 
         </div>
 
 
-        <!-- questions file -->
-        <script src="questions.js"></script>
+        <!-- problems file -->
+        <script src="problems.js"></script>
         <!-- main js file -->
         <script src="script.js"></script>
     </body>

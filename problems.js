@@ -1,4 +1,4 @@
-var questions = {
+var problems = {
 
     sleep_in:{
 
@@ -20,7 +20,7 @@ var questions = {
 
     monkey_trouble:{
 
-        prompt: "We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in trouble if they are both smiling or if neither of them is smiling. Return True if we are in trouble.",
+        prompt: "We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in trouble if they are both smiling or if neither of them is smiling. Return true if we are in trouble.",
 
         parameters: ["a_smile", "b_smile"],
 
@@ -38,15 +38,15 @@ var questions = {
 
     sum_double:{
 
-        prompt: "Given two int values (int1 and int2), return their sum. Unless the two values are the same, then return double their sum.",
+        prompt: "Given two int values (a and b), return double their sum if they are the same. Otherwise, return their sum.",
 
-        parameters: ["int1", "int2"],
+        parameters: ["a", "b"],
 
-        testFunction: function (int1, int2) {
-            if (int1==int2) {
-                return int1*4;
+        testFunction: function (a, b) {
+            if (a == b) {
+                return a * 4;
             }
-            return int1+int2;
+            return a + b;
         },
 
         testData: [
