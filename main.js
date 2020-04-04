@@ -74,8 +74,9 @@ function setupProblem () {
     }
     //if no saved code, generate empty function
     else {
-        let parameterString = problem.parameters.join(', ');
-        editor.setValue(`function ${name} (${parameterString}) {\n\t\n}`);
+        editor.setValue(
+            `function ${name} (${problem.parameters.join(', ')}) {\n\t\n}`
+        );
     }
 
     //set up prompt
