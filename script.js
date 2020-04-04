@@ -130,9 +130,11 @@ runButton.addEventListener('click', function () {
                 result[problem.parameters[i]] = inputs[i];
             }
 
-            let inputsString = inputs.join(', ');
-            eval(`result.testResult = problem.testFunction(${inputsString});`);
-            eval(`result.userResult = ${name}(${inputsString})`);
+            //run test function with Function.prototype.apply()
+            result.testResult = problem.testFunction.apply(null, inputs);
+
+            //run users function with Function.prototype.apply()
+            eval(`result.userResult = ${name}.apply(null, inputs)`);
 
             //check if results match
             result.correct = result.testResult == result.userResult;
@@ -148,8 +150,11 @@ runButton.addEventListener('click', function () {
         //overall result
         if (allCorrect) {
             resultHTML += "<h4 class='correct'>Perfect</h4>";
-            //show continue button
-            continueButton.style.display = '';
+
+            //show continue button if not last problem
+            if (problemSelect.selectedIndex < problemSelect.length -1) {
+                continueButton.style.display = '';
+            }
         }
         else {
             resultHTML += "<h4 class='incorrect'>Problem Found</h4>";

@@ -65,7 +65,7 @@ var problems = {
 
         testFunction: function (string) {
             if (string.slice(0,3) != "not") {
-                string = string + "not ";
+                return "not " + string;
             }
             return string
         },
