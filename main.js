@@ -42,8 +42,16 @@ for (let name in problems) {
     problemSelect.add(option);
 }
 
+//choose initial problem from cookies
+problemSelect.selectedIndex = problemIndex;
+//variable to hold old index
+oldName = problemSelect.value;
+
 //function to set up problem
 function setupProblem () {
+
+    //save new problem to cookie
+    setProblemCookie(problemSelect);
 
     //clear output
     errorPara.innerHTML = "";
@@ -54,16 +62,28 @@ function setupProblem () {
     let name = problemSelect.value;
     let problem = problems[name];
 
-    //set up code editor
-    let parameterString = problem.parameters.join(', ');
-    editor.setValue(`function ${name} (${parameterString}) {\n\t\n}`);
+    //save code from previous problem to cookie
+    setCodeCookie(oldName, editor.getValue());
+
+    //set old name to new name
+    oldName = name;
+
+    //set up code editor with saved code
+    if (savedCode[name]) {
+        editor.setValue(savedCode[name]);
+    }
+    //if no saved code, generate empty function
+    else {
+        let parameterString = problem.parameters.join(', ');
+        editor.setValue(`function ${name} (${parameterString}) {\n\t\n}`);
+    }
 
     //set up prompt
     titleHeader.innerHTML = name;
     promptPara.innerHTML = problem.prompt;
 }
 
-//set up initial (first) problem
+//set up initial problem
 setupProblem();
 
 //event listener to set up new problem when selected
@@ -87,6 +107,12 @@ function prevProblem() {
 backButton.addEventListener('click', prevProblem);
 forwardButton.addEventListener('click', nextProblem);
 continueButton.addEventListener('click', nextProblem);
+
+//save code from editor periodically (BUGGED SOMEHOW)
+setInterval(function () {
+    let name = problemSelect.value;
+    setCodeCookie(name, editor.getValue());
+}, 100);
 
 
 
