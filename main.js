@@ -255,7 +255,7 @@ runButton.addEventListener('click', function () {
 
     //catch errors to display to user
     catch (error) {
-        errorPara.innerHTML = error.toString();
+        errorPara.innerHTML = `Error Found<br><br>${error.toString()}`;
     }
     
 });
