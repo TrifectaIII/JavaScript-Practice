@@ -27,6 +27,9 @@ var editor = CodeMirror.fromTextArea(
         indentUnit: 4,
         tabSize: 4,
         autoCloseBrackets: true,
+        extraKeys: {
+            'Ctrl-/': 'toggleComment',
+        }
     }
 );
 

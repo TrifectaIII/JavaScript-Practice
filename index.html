@@ -24,6 +24,9 @@
         <!-- codemirror closeBrackets addon from jsdelivr -->
         <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/addon/edit/closebrackets.js"></script>
 
+        <!-- codemirror comments addon from jsdelivr -->
+        <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/addon/comment/comment.js"></script>
+
         <!-- cookie.js by florian from jsdelivr -->
         <script src="https://cdn.jsdelivr.net/npm/cookie_js@1.4.0/dist/cookie.umd.min.js"></script>
 
@@ -44,13 +47,6 @@
             </div>
 
             <br>
-
-            <div class='row'>
-                <button class='resetAll'>RESET ALL</button>
-                <br>
-                <button class='resetOne'>RESET PROBLEM</button>
-            </div>
-
             <br>
 
             <div class='row'>
@@ -58,9 +54,7 @@
                 <button class='back navigation'>PREV</button>
                 <select class='problem'></select>
                 <button class='forward navigation'>NEXT</button>
-            </div>
-
-            
+            </div> 
 
             <br>
 
@@ -69,6 +63,11 @@
 
                     <h4 class='title'></h4>
                     <p class='prompt'></p> 
+
+                    <div class='row'>
+                        <button class='resetOne'>RESET PROBLEM</button>
+                        <button class='resetAll'>RESET ALL</button>
+                    </div>
 
                     <div class='code'>
                         <textarea class='editor'></textarea>
