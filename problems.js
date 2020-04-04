@@ -57,4 +57,24 @@ var problems = {
         ],
     },
 
+    not_string:{
+
+        prompt: "Given a string, return a new string where 'not ' has been added to the front. However, if the string already begins with 'not', return the string unchanged.",
+
+        parameters: ["string"],
+
+        testFunction: function (string) {
+            if (string.slice(0,3) != "not") {
+                string = string + "not ";
+            }
+            return string
+        },
+
+        testData: [
+            ["noti"],
+            ["inot"],
+            ["not i"],
+            ["greed"],
+        ],
+    },
 }

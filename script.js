@@ -1,3 +1,6 @@
+// SETUP
+////////////////////////////////////////////////////////////////////
+
 //get html elements
 var problemSelect = document.querySelector('.problem');
 var backButton = document.querySelector('.back');
@@ -25,10 +28,17 @@ var editor = CodeMirror.fromTextArea(
     }
 );
 
+
+
+// SELECT OPTIONS
+////////////////////////////////////////////////////////////////////
+
 //set up problem select options based on problems.js
+let optionCounter = 0;
 for (let name in problems) {
     let option = document.createElement("option");
-    option.text = name;
+    option.text = `${(++optionCounter).toString()}. ${name}`;
+    option.value = name;
     problemSelect.add(option);
 }
 
@@ -77,6 +87,11 @@ function prevProblem() {
 backButton.addEventListener('click', prevProblem);
 forwardButton.addEventListener('click', nextProblem);
 continueButton.addEventListener('click', nextProblem);
+
+
+
+// EXECUTE CODE
+////////////////////////////////////////////////////////////////////
 
 //execute code on button press
 runButton.addEventListener('click', function () {
@@ -145,16 +160,19 @@ runButton.addEventListener('click', function () {
 
             //build header row
             resultHTML += "<thead><tr>"
-                //row for each input
+                //column for each input
                 for (let i = 0; i < problem.parameters.length; i++) {
                     resultHTML += `<th>${problem.parameters[i]}</th>`
                 }
-                //r
+                //column for expected and actual results
                 resultHTML += `<th>Expected</th>`
                 resultHTML += `<th>Result</th>`
             resultHTML += "</tr></thead>"
 
+            //build body
             resultHTML += "<tbody>"
+
+                //one row for every set of inputs
                 results.forEach(function (resultObj) {
                     resultHTML += "<tr>"
                     for (let i = 0; i < problem.parameters.length; i++) {
