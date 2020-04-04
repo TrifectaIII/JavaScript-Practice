@@ -43,9 +43,20 @@ for (let name in problems) {
 }
 
 //choose initial problem from cookies
-problemSelect.selectedIndex = problemIndex;
-//variable to hold old index
-oldName = problemSelect.value;
+problemSelect.selectedIndex = getProblemCookie();
+//variable to hold old name of problem
+oldName = '';
+
+//function to generate empty function
+function generateFunctionCode () {
+
+    let name = problemSelect.value;
+    let problem = problems[name];
+
+    editor.setValue(
+        `function ${name} (${problem.parameters.join(', ')}) {\n\t\n}`
+    );
+}
 
 //function to set up problem
 function setupProblem () {
@@ -62,26 +73,26 @@ function setupProblem () {
     let name = problemSelect.value;
     let problem = problems[name];
 
-    //save code from previous problem to cookie
-    setCodeCookie(oldName, editor.getValue());
-
-    //set old name to new name
-    oldName = name;
+    //save code from previous problem to cookie, if old problem exists
+    if (oldName) {
+        setCodeCookie(oldName, editor.getValue());
+    }
 
     //set up code editor with saved code
-    if (savedCode[name]) {
-        editor.setValue(savedCode[name]);
+    if (getCodeCookie(name)) {
+        editor.setValue(getCodeCookie(name));
     }
     //if no saved code, generate empty function
     else {
-        editor.setValue(
-            `function ${name} (${problem.parameters.join(', ')}) {\n\t\n}`
-        );
+        generateFunctionCode();
     }
 
     //set up prompt
     titleHeader.innerHTML = name;
     promptPara.innerHTML = problem.prompt;
+
+    //set old name to new name
+    oldName = name;
 }
 
 //set up initial problem
@@ -109,11 +120,14 @@ backButton.addEventListener('click', prevProblem);
 forwardButton.addEventListener('click', nextProblem);
 continueButton.addEventListener('click', nextProblem);
 
-//save code from editor periodically (BUGGED SOMEHOW)
-setInterval(function () {
+//save code from editor periodically
+editor.on('change', function () {
     let name = problemSelect.value;
-    setCodeCookie(name, editor.getValue());
-}, 100);
+    //only save code if not transitioning to different problem
+    if (oldName == name) {
+        setCodeCookie(name, editor.getValue());
+    }
+});
 
 
 
