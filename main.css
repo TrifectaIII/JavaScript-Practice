@@ -9,7 +9,7 @@
     border: solid 2px black!important;
 }
 
-.navigation {
+.navigation, .resetOne, .resetAll {
     border: solid 1px black !important;
 }
 

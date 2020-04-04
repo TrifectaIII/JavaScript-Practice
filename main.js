@@ -2,6 +2,8 @@
 ////////////////////////////////////////////////////////////////////
 
 //get html elements
+var resetOneButton = document.querySelector('.resetOne');
+var resetAllButton = document.querySelector('.resetAll');
 var problemSelect = document.querySelector('.problem');
 var backButton = document.querySelector('.back');
 var forwardButton = document.querySelector('.forward');
@@ -42,11 +44,6 @@ for (let name in problems) {
     problemSelect.add(option);
 }
 
-//choose initial problem from cookies
-problemSelect.selectedIndex = getProblemCookie();
-//variable to hold old name of problem
-oldName = '';
-
 //function to generate empty function
 function generateFunctionCode () {
 
@@ -57,6 +54,18 @@ function generateFunctionCode () {
         `function ${name} (${problem.parameters.join(', ')}) {\n\t\n}`
     );
 }
+
+//set up reset buttons
+resetOneButton.addEventListener('click', generateFunctionCode);
+resetAllButton.addEventListener('click', function () {
+    deleteAllCookies();
+    generateFunctionCode();
+});
+
+//choose initial problem from cookies
+problemSelect.selectedIndex = getProblemCookie();
+//variable to hold old name of problem
+oldName = '';
 
 //function to set up problem
 function setupProblem () {

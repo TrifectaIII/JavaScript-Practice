@@ -17,3 +17,8 @@ function getCodeCookie(name) {
 function setCodeCookie (name, codeString) {
     cookie.set(name, codeString);
 }
+
+//deletes all cookies
+function deleteAllCookies () {
+    cookie.empty();
+}
