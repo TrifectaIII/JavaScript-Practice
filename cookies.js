@@ -1,11 +1,11 @@
 //sets current index cookie to index of given select element
 function getProblemCookie () {
-    return cookie.get('savedIndex', 0);
+    return cookie.get('savedName', '');
 }
 
 //sets current index cookie to index of given select element
 function setProblemCookie (select) {
-    cookie.set('savedIndex', select.selectedIndex);
+    cookie.set('savedName', select.value);
 }
 
 //gets code from based on problem name

@@ -1,80 +1,82 @@
 var problems = {
 
-    sleep_in:{
+    doubleOrNothing:{
 
-        prompt: "The parameter weekday is true if it is a weekday, and the parameter vacation is true if we are on vacation. We sleep in if it is not a weekday or we're on vacation. Return true if we sleep in, and false otherwise.",
+        prompt: "Given an integer (x), return double that integer if the integer is over 100. Otherwise, return 0.",
 
-        parameters: ["weekday", "vacation"],
+        parameters: ["x"],
 
-        testFunction: function (weekday, vacation) {
-            return !weekday || vacation;
+        testFunction: function (x) {
+            return 2*x*(x>100);
         },
 
         testData: [
-            [true, true],
-            [false, false],
-            [true, false],
-            [false, true],
+            [5],
+            [99],
+            [100],
+            [101],
+            [300],
         ],
     },
 
-    monkey_trouble:{
+    pizzaDelivery:{
 
-        prompt: "We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in trouble if they are both smiling or if neither of them is smiling. Return true if we are in trouble.",
+        prompt: "Sunny wants to order a pizza for delivery. The wallet parameter represents how much money she has at the moment. The price parameter represents the cost of the pizza. Return true if she can afford to order the pizza including a 20% tip for the driver, and return false otherwise.",
 
-        parameters: ["a_smile", "b_smile"],
+        parameters: ["wallet", "price"],
 
-        testFunction: function (a_smile, b_smile) {
-            return a_smile == b_smile;
+        testFunction: function (wallet, price) {
+            return wallet >= price*1.2;
         },
 
         testData: [
-            [true, true],
-            [false, false],
-            [true, false],
-            [false, true],
+            [5, 10],
+            [20, 20],
+            [24, 20],
+            [100, 1],
         ],
     },
 
-    sum_double:{
+    tripMoney:{
 
-        prompt: "Given two int values (a and b), return double their sum if they are the same. Otherwise, return their sum.",
+        prompt: "Vette wants to save for her upcoming trip to Japan. The saved parameter represents how many dollars she was able to save before the trip. She'd like to have 500 dollars saved up, but figures anything within 50 dollars of that will be good enough. Return true if she has saved a good amount, and false otherwise.",
 
-        parameters: ["a", "b"],
+        parameters: ["saved"],
 
-        testFunction: function (a, b) {
-            if (a == b) {
-                return a * 4;
-            }
-            return a + b;
+        testFunction: function (saved) {
+            return (450 <= saved && saved <= 550);
         },
 
         testData: [
-            [1, 2],
-            [2, 2],
-            [-1, -1],
-            [-5, 6],
+            [400],
+            [450],
+            [451],
+            [500],
+            [550],
+            [600],
         ],
     },
 
-    not_string:{
+    firstChar:{
 
-        prompt: "Given a string, return a new string where 'not ' has been added to the front. However, if the string already begins with 'not', return the string unchanged.",
+        prompt: "Given a string containing at least 1 character, return the first character of the string if the string is longer than 10 characters. Otherwise, just return the string.",
 
         parameters: ["string"],
 
         testFunction: function (string) {
-            if (string.slice(0,3) != "not") {
-                return "not " + string;
+            if (string.length > 10) {
+                return string[0];
             }
-            return string
+            else {
+                return string;
+            }
         },
 
         testData: [
-            ["noti"],
-            ["inot"],
-            ["not i"],
-            ["greed"],
+            ["hello!"],
+            ["I like ice cream"],
+            ["abcdefghij"],
+            ["zZzZzZzZzZzZz"],
         ],
     },
 }

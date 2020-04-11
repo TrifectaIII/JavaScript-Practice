@@ -65,10 +65,20 @@ resetAllButton.addEventListener('click', function () {
     generateFunctionCode();
 });
 
-//choose initial problem from cookies
-problemSelect.selectedIndex = getProblemCookie();
+//get saved problem from cookies
+var savedName = getProblemCookie();
+if (savedName) {
+    //loop throuh options to find right one
+    for (let i = 0; i < problemSelect.options.length; i++) {
+        if (savedName == problemSelect.options[i].value) {
+            problemSelect.selectedIndex = i;
+            break;
+        }
+    }
+}
+
 //variable to hold old name of problem
-oldName = '';
+var oldName = '';
 
 //function to set up problem
 function setupProblem () {
