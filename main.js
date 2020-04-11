@@ -244,14 +244,14 @@ runButton.addEventListener('click', function () {
                 results.forEach(function (resultObj) {
                     resultHTML += "<tr>"
                     for (let i = 0; i < problem.parameters.length; i++) {
-                        resultHTML += `<td>${resultObj[problem.parameters[i]]}</td>`
+                        resultHTML += `<td>${JSON.stringify(resultObj[problem.parameters[i]])}</td>`
                     }
-                    resultHTML += `<td>${resultObj.testResult}</td>`
+                    resultHTML += `<td>${JSON.stringify(resultObj.testResult)}</td>`
                     if (resultObj.correct) {
-                        resultHTML += `<th class='correct'>${resultObj.userResult}</th>`
+                        resultHTML += `<th class='correct'>${JSON.stringify(resultObj.userResult)}</th>`
                     }
                     else {
-                        resultHTML += `<th class='incorrect'>${resultObj.userResult}</th>`
+                        resultHTML += `<th class='incorrect'>${JSON.stringify(resultObj.userResult)}</th>`
                     }
                     resultHTML += "</tr>"
                 });
