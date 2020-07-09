@@ -79,4 +79,44 @@ var problems = {
             ["zZzZzZzZzZzZz"],
         ],
     },
+
+    reversedString:{
+
+        prompt: "Given a string containing at least 2 characters, return that string reversed.",
+
+        parameters: ["string"],
+
+        testFunction: function (string) {
+            return string.split("").reverse().join("");
+        },
+
+        testData: [
+            ["abc"],
+            ["racecar"],
+            ["Hello"],
+            ["eybdooG"],
+        ],
+    },
+
+    repeatString:{
+
+        prompt: "Given a string x containing at least 1 character and an integer y greater than 0, return a string with the contents of x repeated y times.",
+
+        parameters: ["x","y"],
+
+        testFunction: function (x, y) {
+            let repeated = "";
+            for (let i = 0; i < y; i++) {
+                repeated += x;
+            }
+            return repeated;
+        },
+
+        testData: [
+            ["V", 2],
+            ["Hi", 4],
+            ["The Cheese", 1],
+            ["Sss", 3],
+        ],
+    },
 }
