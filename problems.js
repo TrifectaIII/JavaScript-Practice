@@ -59,7 +59,7 @@ var problems = {
 
     salesTax:{
 
-        prompt:"Mary Jane Watson-Parker wants to buy an item from the store, but she knows that some items have sales tax and some don't. The parameter tax is the tax rate for the item as a fraction of 1 (ie. a 10% tax would be 0.1). The price parameter is the pre-tax price of the item, and the wallet parameter is how much money she has to spend. Return true if she can purcahse the item, and false otherwise.",
+        prompt:"Mary Jane Watson-Parker wants to buy an item from the store, but she knows that some items have sales tax and some don't. The parameter tax is the tax rate for the item as a fraction of 1 (ie. a 10% tax would be 0.1). The price parameter is the pre-tax price of the item, and the wallet parameter is how much money she has to spend. Return true if she can purchase the item, and false otherwise.",
 
         parameters: ["wallet", "price", "tax"],
 
