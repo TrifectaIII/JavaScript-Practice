@@ -200,7 +200,7 @@ runButton.addEventListener('click', function () {
             eval(`result.userResult = ${name}.apply(null, inputs)`);
 
             //check if results match
-            result.correct = result.testResult == result.userResult;
+            result.correct = result.testResult === result.userResult;
             allCorrect = allCorrect && result.correct;
 
             //add to results array
