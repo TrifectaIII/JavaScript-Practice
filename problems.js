@@ -21,7 +21,7 @@ var problems = {
 
     pizzaDelivery:{
 
-        prompt: "Sunny wants to order a pizza for delivery. The wallet parameter represents how much money she has at the moment. The price parameter represents the cost of the pizza. Return true if she can afford to order the pizza including a 20% tip for the driver, and return false otherwise.",
+        prompt: "Sunny wants to order a pizza for delivery. The wallet parameter represents how much money she has at the moment. The price parameter represents the cost of the pizza. Return true if she can afford to order the pizza including a 20% delivery fee, and return false otherwise.",
 
         parameters: ["wallet", "price"],
 
@@ -79,4 +79,25 @@ var problems = {
             ["zZzZzZzZzZzZz"],
         ],
     },
+
+    salesTax:{
+
+        prompt:"Mary Jane Watson-Parker wants to buy an item from the store, but she knows that some items have sales tax and some don't. The parameter tax is the tax rate for the item as a fraction of 1 (ie. a 10% tax would be 0.1). The price parameter is the pre-tax price of the item, and the wallet parameter is how much money she has to spend. Return true if she can purcahse the item, and false otherwise.",
+
+        parameters: ["wallet", "price", "tax"],
+
+        testFunction: function (wallet, price, tax) {
+            return wallet >= price*(1+tax);
+        },
+
+        testData: [
+            [10, 10, 0.1],
+            [11, 10, 0.1],
+            [11, 10, 0.2],
+            [20, 15, 0.5],
+            [5, 10, 0.33],
+            [50, 50, 0.01],
+            [50, 50, 0],
+        ],
+    }
 }
